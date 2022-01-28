@@ -8,11 +8,15 @@ package com.sg.classes.classesexample;
  *
  * @author geetikabatra
  */
-public class App {
-    public static void main(String[] args) {
-        
-        //DemoObjects.demoObjects(args);
-       // DemoInheritance.demoInheritance(args);
-        DemoContainers.democontainers(args);
+public class EconomySoup extends Soup{
+    
+    public EconomySoup(int quantity,double unitprice) {
+        super(quantity,0.99f);
     }
+
+    @Override
+    public String demoVirtual() {
+        return "Economy soup";
+    }
+    
 }
