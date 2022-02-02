@@ -5,8 +5,11 @@
 package com.sg.classroster;
 
 import com.sg.classroster.controller.ClassRosterController;
+import com.sg.classroster.dao.ClassRosterAuditDao;
+import com.sg.classroster.dao.ClassRosterAuditDaoFileImpl;
 import com.sg.classroster.dao.ClassRosterDao;
 import com.sg.classroster.dao.ClassRosterDaoFileImpl;
+import com.sg.classroster.service.*;
 import com.sg.classroster.ui.ClassRosterView;
 import com.sg.classroster.ui.UserIO;
 import com.sg.classroster.ui.UserIOconsoleImpl;
@@ -26,10 +29,14 @@ public class App {
     
     //inject user io dependency into view
     ClassRosterView myView = new ClassRosterView(myIo);
+    ClassRosterAuditDao myAuditDao= new ClassRosterAuditDaoFileImpl();
+//    ClassRosterServiceLayer service = new ClassRosterServiceLayerImpl(myDao);
+ClassRosterServiceLayer service = new ClassRosterServiceLayerImpl(myDao,myAuditDao);
     
     
     //injecting class roster dao and class roster view into class roster controller
-    ClassRosterController controller = new ClassRosterController(myDao, myView);
+    //ClassRosterController controller = new ClassRosterController(myDao, myView);
+    ClassRosterController controller = new ClassRosterController(service, myView);
     
     //run application
     controller.run();

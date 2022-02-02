@@ -4,6 +4,7 @@
  */
 package com.sg.classroster.dao;
 
+import com.sg.classroster.service.ClassRosterPersistenceException;
 import com.sg.classroster.dto.Student;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public interface ClassRosterDao {
     
     //Student addStudent(String studentId, Student student); //before marshall and unmarshall
     
-    Student addStudent(String studentId, Student student) throws ClassRosterDaoException;
+    Student addStudent(String studentId, Student student) throws ClassRosterPersistenceException;
     
     /**
      * Returns a List of all students in the roster.
@@ -37,7 +38,7 @@ public interface ClassRosterDao {
      */
     
     //List<Student> getAllStudents(); //before marshall and unmarshall
-    List<Student> getAllStudents() throws ClassRosterDaoException;
+    List<Student> getAllStudents() throws ClassRosterPersistenceException;
 
     /**
      * Returns the student object associated with the given student id.
@@ -48,7 +49,7 @@ public interface ClassRosterDao {
      * null if no such student exists
      */
     //Student getStudent(String studentId); //before marshall and unmarshall
-    Student getStudent(String studentId) throws ClassRosterDaoException;
+    Student getStudent(String studentId) throws ClassRosterPersistenceException;
     /**
      * Removes from the roster the student associated with the given id.
      * Returns the student object that is being removed or null if
@@ -59,6 +60,6 @@ public interface ClassRosterDao {
      * was associated with the given student id
      */
     //Student removeStudent(String studentId);//before marshall and unmarshall
-      Student removeStudent(String studentId)throws ClassRosterDaoException;
+      Student removeStudent(String studentId)throws ClassRosterPersistenceException;
 }
 
