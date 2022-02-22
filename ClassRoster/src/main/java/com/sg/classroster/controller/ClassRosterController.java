@@ -26,7 +26,7 @@ public class ClassRosterController {
     
     //private ClassRosterView view= new ClassRosterView(); //use this if not DI
     //private UserIO io = new UserIOconsoleImpl(); //dont need after implementing methods
-    //private ClassRosterDao dao = new ClassRosterDaoFileImpl(); //use this if not DI
+    //private ClassRosterDao dao = new ClassRosterDaoFileImpl(); //use this if not DI  //removed to use service layer
     
     private ClassRosterView view; //dependency injection 
     //private ClassRosterDao dao; //dependency injection
